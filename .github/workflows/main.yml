@@ -1,10 +1,8 @@
 name: Portfolio Deployment
-
 on:
   push:
     branches:
-      - main
-
+      - master
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -12,14 +10,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
-
       - name: Deploy Portfolio to Amazon S3
         run: |
           aws s3 sync . s3://ayush-cloud-portfolio1 --delete \
