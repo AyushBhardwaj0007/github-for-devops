@@ -11,6 +11,6 @@ document.querySelector(this.getAttribute("href")).scrollIntoView({
 behavior:"smooth"
 
 });
-// Optional: Update the URL hash without jumping to the section
+
 });
 });
